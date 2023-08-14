@@ -3,7 +3,7 @@ import numpy as np
 # from convolutionLayer2 import simple_unet_model
 from unetClass import SimpleUNetLayer
 from customDataGenerator import imageLoader
-import random
+import json
 import h5py
 
 
@@ -78,7 +78,7 @@ for epoch in range(epochs):
             model.backward(gradient)
 
             # Update weights using gradients and learning rate
-            model.update_weights(learning_rate) 
+            model.update_weights(learning_rate)
 
         avg_batch_loss = batch_loss / batch_size
         total_loss += avg_batch_loss
@@ -87,6 +87,13 @@ for epoch in range(epochs):
     print(f"Epoch {epoch + 1}/{epochs}, Loss: {avg_epoch_loss}")
 
 print("Training completed.")
+
+# Get model information
+model_info = model.get_model_info()
+
+# Save model information to a JSON file
+with open("model_info.json", "w") as json_file:
+    json.dump(model_info, json_file)
 
 # for epoch in range(epochs):
 #     total_loss = 0

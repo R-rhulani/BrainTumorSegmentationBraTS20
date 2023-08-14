@@ -17,6 +17,14 @@ class SimpleUNetLayer:
             weight_gradient = np.sum(self.input_data * self.gradients[i])
             self.weights[i] -= learning_rate * weight_gradient
 
+    def get_model_info(self):
+        model_info = {
+            "architecture": "simple_unet",  # A string identifier for the model
+            "weights": [w.tolist() for w in self.weights]
+            # Add any other relevant model information here
+        }
+        return model_info
+
     def forward(self, input_data):
         self.input_data = input_data
 
