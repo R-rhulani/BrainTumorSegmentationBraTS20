@@ -1,0 +1,10 @@
+<div>
+  <h1>Brain Tumor Segmentation</h1>
+  <input type="file" (change)="onFileSelected($event)" accept="image/jpeg" />
+  <button (click)="uploadImage()">Upload and Predict</button>
+
+  <div *ngIf="prediction">
+    <h2>Prediction</h2>
+    <p>{{ prediction }}</p>
+  </div>
+</div>
