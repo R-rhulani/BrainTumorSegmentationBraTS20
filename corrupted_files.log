@@ -1,0 +1,239 @@
+DEBUG:root:test_image_flair.max() for file number 251 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_251/BraTS20_Training_251_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 253 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_253/BraTS20_Training_253_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 254 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_254/BraTS20_Training_254_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 255 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_255/BraTS20_Training_255_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 257 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_257/BraTS20_Training_257_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 258 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_258/BraTS20_Training_258_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 260 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_260/BraTS20_Training_260_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 261 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_261/BraTS20_Training_261_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 262 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_262/BraTS20_Training_262_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 263 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_263/BraTS20_Training_263_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 264 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_264/BraTS20_Training_264_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 266 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_266/BraTS20_Training_266_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 268 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_268/BraTS20_Training_268_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 269 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_269/BraTS20_Training_269_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 270 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_270/BraTS20_Training_270_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 271 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_271/BraTS20_Training_271_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 272 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_272/BraTS20_Training_272_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 273 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_273/BraTS20_Training_273_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 274 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_274/BraTS20_Training_274_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 275 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_275/BraTS20_Training_275_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 276 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_276/BraTS20_Training_276_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 277 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_277/BraTS20_Training_277_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 278 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_278/BraTS20_Training_278_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 279 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_279/BraTS20_Training_279_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 280 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_280/BraTS20_Training_280_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 281 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_281/BraTS20_Training_281_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 282 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_282/BraTS20_Training_282_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 283 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_283/BraTS20_Training_283_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 284 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_284/BraTS20_Training_284_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 285 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_285/BraTS20_Training_285_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 286 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_286/BraTS20_Training_286_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 287 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_287/BraTS20_Training_287_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 288 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_288/BraTS20_Training_288_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 289 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_289/BraTS20_Training_289_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 290 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_290/BraTS20_Training_290_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 291 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_291/BraTS20_Training_291_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 292 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_292/BraTS20_Training_292_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 293 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_293/BraTS20_Training_293_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 294 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_294/BraTS20_Training_294_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 295 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_295/BraTS20_Training_295_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 296 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_296/BraTS20_Training_296_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 297 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_297/BraTS20_Training_297_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 298 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_298/BraTS20_Training_298_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 299 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_299/BraTS20_Training_299_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 301 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_301/BraTS20_Training_301_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 302 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_302/BraTS20_Training_302_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 303 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_303/BraTS20_Training_303_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 304 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_304/BraTS20_Training_304_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 305 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_305/BraTS20_Training_305_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 306 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_306/BraTS20_Training_306_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 307 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_307/BraTS20_Training_307_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 308 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_308/BraTS20_Training_308_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 309 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_309/BraTS20_Training_309_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 310 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_310/BraTS20_Training_310_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 311 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_311/BraTS20_Training_311_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 312 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_312/BraTS20_Training_312_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 313 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_313/BraTS20_Training_313_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 314 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_314/BraTS20_Training_314_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 315 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_315/BraTS20_Training_315_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 316 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_316/BraTS20_Training_316_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 317 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_317/BraTS20_Training_317_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 318 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_318/BraTS20_Training_318_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 319 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_319/BraTS20_Training_319_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 320 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_320/BraTS20_Training_320_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 321 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_321/BraTS20_Training_321_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 322 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_322/BraTS20_Training_322_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 323 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_323/BraTS20_Training_323_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 324 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_324/BraTS20_Training_324_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 326 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_326/BraTS20_Training_326_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 327 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_327/BraTS20_Training_327_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 328 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_328/BraTS20_Training_328_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 329 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_329/BraTS20_Training_329_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 330 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_330/BraTS20_Training_330_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 331 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_331/BraTS20_Training_331_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 332 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_332/BraTS20_Training_332_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 333 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_333/BraTS20_Training_333_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 334 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_334/BraTS20_Training_334_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 336 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_336/BraTS20_Training_336_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 337 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_337/BraTS20_Training_337_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 338 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_338/BraTS20_Training_338_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 339 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_339/BraTS20_Training_339_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 340 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_340/BraTS20_Training_340_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 341 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_341/BraTS20_Training_341_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 342 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_342/BraTS20_Training_342_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 343 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_343/BraTS20_Training_343_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 344 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_344/BraTS20_Training_344_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 345 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_345/BraTS20_Training_345_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 346 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_346/BraTS20_Training_346_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 347 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_347/BraTS20_Training_347_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 348 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_348/BraTS20_Training_348_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 349 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_349/BraTS20_Training_349_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 350 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_350/BraTS20_Training_350_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 351 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_351/BraTS20_Training_351_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 352 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_352/BraTS20_Training_352_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 353 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_353/BraTS20_Training_353_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 354 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_354/BraTS20_Training_354_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 355 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_355/BraTS20_Training_355_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 356 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_356/BraTS20_Training_356_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 357 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_357/BraTS20_Training_357_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 358 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_358/BraTS20_Training_358_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 359 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_359/BraTS20_Training_359_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 360 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_360/BraTS20_Training_360_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 362 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_362/BraTS20_Training_362_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 364 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_364/BraTS20_Training_364_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 365 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_365/BraTS20_Training_365_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 366 did not have data. error:No such file or no access: 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_366/BraTS20_Training_366_flair.nii'
+DEBUG:root:test_image_flair.max() for file number 367 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_367/BraTS20_Training_367_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 368 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_368/BraTS20_Training_368_flair.nii"
+DEBUG:root:test_image_flair.max() for file number 369 did not have data. error:Cannot work out file type of "BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_369/BraTS20_Training_369_flair.nii"
+251
+252
+253
+254
+255
+257
+258
+259
+260
+261
+262
+263
+264
+265
+267
+266
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+
+DEBUG:root:325
+DEBUG:root:335
+DEBUG:root:361
+DEBUG:root:363
+DEBUG:root:325
+DEBUG:root:335
+DEBUG:root:361
+DEBUG:root:363
+DEBUG:root:325
+DEBUG:root:335
+DEBUG:root:361
+DEBUG:root:363
