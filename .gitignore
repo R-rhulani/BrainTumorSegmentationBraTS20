@@ -1,0 +1,10 @@
+/brats_3d.hdf5
+braTS2020_TrainingData/
+braTS2020_ValidationData/
+/semanticSegmentationBraTsBackend/package-lock.json
+semanticSegmentationBraTsBackend/node_modules/
+semanticSegmentationBraTsBackend/models/
+semanticSegmentationBraTsBackend/uploads/
+brainTumorSegmentationApp/tumor-segmentation-app/node_modules/
+/brainTumorSegmentationApp/tumor-segmentation-app/package-lock.json
+/semanticSegmentationBraTsBackend/brats_3d.hdf5

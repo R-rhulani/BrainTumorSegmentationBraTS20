@@ -12,7 +12,13 @@ class SimpleUNetLayer:
         self.weights.append(weight)
         self.gradients.append(np.zeros_like(weight))
 
+    def update_weights(self, learning_rate):
+        for i in range(len(self.weights)):
+            weight_gradient = np.sum(self.input_data * self.gradients[i])
+            self.weights[i] -= learning_rate * weight_gradient
+
     def forward(self, input_data):
+        self.input_data = input_data
 
         # Build the model using the SimpleUNetLayer class
         # inputs = np.zeros((IMG_HEIGHT, IMG_WIDTH, IMG_DEPTH, IMG_CHANNELS))
@@ -114,16 +120,29 @@ class SimpleUNetLayer:
 
         return outputs
 
-    def backward(self, gradient, input_data):
+    # def backward(self, gradient, input_data):
+    #     # Update gradients for each weight and propagate the gradient to the previous layer
+    #     for i in range(len(self.weights)):
+    #         # Update the gradient using the given gradient and the input_data
+    #         self.gradients[i] += conv3d(input_data, gradient[..., i, np.newaxis])
+    #
+    #     # Calculate the gradient to propagate to the previous layer
+    #     propagated_gradient = np.zeros_like(input_data)
+    #     for i in range(len(self.weights)):
+    #         # Accumulate gradients using the weights and the given gradient
+    #         propagated_gradient += conv3d(gradient[..., i, np.newaxis], self.weights[i][::-1, ::-1, ::-1, np.newaxis])
+    #
+    #     if self.prev_layer is not None:
+    #         self.prev_layer.backward(propagated_gradient)
+
+    def backward(self, gradient):
         # Update gradients for each weight and propagate the gradient to the previous layer
         for i in range(len(self.weights)):
-            # Update the gradient using the given gradient and the input_data
-            self.gradients[i] += conv3d(input_data, gradient[..., i, np.newaxis])
+            self.gradients[i] += gradient * self.input_data
 
         # Calculate the gradient to propagate to the previous layer
-        propagated_gradient = np.zeros_like(input_data)
+        propagated_gradient = np.zeros_like(self.input_data)
         for i in range(len(self.weights)):
-            # Accumulate gradients using the weights and the given gradient
             propagated_gradient += conv3d(gradient[..., i, np.newaxis], self.weights[i][::-1, ::-1, ::-1, np.newaxis])
 
         if self.prev_layer is not None:

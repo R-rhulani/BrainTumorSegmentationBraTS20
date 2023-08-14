@@ -47,6 +47,8 @@ def categorical_crossentropy(y_true, y_pred):
     y_pred = np.clip(y_pred, epsilon, 1 - epsilon)  # Clip predictions to prevent log(0)
     return -np.sum(y_true * np.log(y_pred))
 
+learning_rate = 0.001
+
 for epoch in range(epochs):
     total_loss = 0
     batches_per_epoch = num_train_samples // batch_size
@@ -73,13 +75,10 @@ for epoch in range(epochs):
             gradient = output - target_output
 
             # Backpropagate through the model layers
-            model.backward(gradient, input_data)
+            model.backward(gradient)
 
             # Update weights using gradients and learning rate
-            for layer in model.layers:
-                for j in range(len(layer.weights)):
-                    weight_gradient = np.dot(layer.input_data.T, layer.gradients[j])
-                    layer.weights[j] -= learning_rate * weight_gradient
+            model.update_weights(learning_rate) 
 
         avg_batch_loss = batch_loss / batch_size
         total_loss += avg_batch_loss
