@@ -5,17 +5,29 @@ class SimpleUNetLayer:
         self.weights = []
         self.gradients = []
         self.prev_layer = None
+        self.input_data = None  # Add this line to store input_data during forward pass
+
+        # Add weights for different convolutional filters in your layer
+        self.add_weight(shape=(3, 3, 3, 3))  # Example shape, adjust as needed
+        self.add_weight(shape=(3, 3, 3, 3))
+        self.add_weight(shape=(3, 3, 3, 3))
+
+    def reset_gradients(self):
+        self.gradients = None
+
+    def set_prev_layer(self, prev_layer):
+        self.prev_layer = prev_layer
 
     def add_weight(self, shape):
-        # Initialize weights using some strategy, e.g., random initialization
-        weight = np.random.randn(*shape)
+        weight = np.random.randn(*shape)  # Random weight initialization
         self.weights.append(weight)
         self.gradients.append(np.zeros_like(weight))
 
     def update_weights(self, learning_rate):
         for i in range(len(self.weights)):
-            weight_gradient = np.sum(self.input_data * self.gradients[i])
+            weight_gradient = self.gradients[i] / self.input_data.shape[0]
             self.weights[i] -= learning_rate * weight_gradient
+            self.gradients[i] = np.zeros_like(self.gradients[i])
 
     def get_model_info(self):
         model_info = {
@@ -27,14 +39,11 @@ class SimpleUNetLayer:
 
     def forward(self, input_data):
         self.input_data = input_data
-
-        # Build the model using the SimpleUNetLayer class
-        # inputs = np.zeros((IMG_HEIGHT, IMG_WIDTH, IMG_DEPTH, IMG_CHANNELS))
         s = input_data
         num_classes = 4
-        # Contraction path
-        kernel_initializer = np.random.normal(loc=0.0, scale=np.sqrt(2.0), size=(3, 3, 3, 32)).astype(np.float32)
-        kernel_initializer2 = np.ones((3, 3, 3, 16))
+
+        # Use the learned weights for kernel initialization
+        kernel_initializer = self.weights[0]
 
         c1 = conv3d(s, kernel_initializer)
         c1 = relu(c1)
@@ -103,7 +112,7 @@ class SimpleUNetLayer:
         pad_height = c2.shape[1] - u8.shape[1]
         pad_width = c2.shape[2] - u8.shape[2]
         u8 = np.pad(u8, ((0, pad_depth), (0, pad_height), (0, pad_width), (0, 0)), mode='constant')
-        u8 = concatenate([u8, c2], axis=-1)
+        # u8 = concatenate([u8, c2], axis=-1)
         c8 = conv3d_transpose(u8, kernel_initializer)
         c8 = relu(c8)
         c8 = dropout(c8, 0.1)
@@ -128,33 +137,70 @@ class SimpleUNetLayer:
 
         return outputs
 
-    # def backward(self, gradient, input_data):
-    #     # Update gradients for each weight and propagate the gradient to the previous layer
+    # def backward(self, gradients):
     #     for i in range(len(self.weights)):
-    #         # Update the gradient using the given gradient and the input_data
-    #         self.gradients[i] += conv3d(input_data, gradient[..., i, np.newaxis])
+    #         for c in range(gradients.shape[-1]):
+    #             # Calculate the gradient for the current weight
+    #             weight_gradient = np.sum(gradients[..., c] * self.input_data[..., c])
+    #             self.gradients[i] += weight_gradient
     #
-    #     # Calculate the gradient to propagate to the previous layer
-    #     propagated_gradient = np.zeros_like(input_data)
+    #     propagated_gradients = np.zeros_like(self.input_data)
     #     for i in range(len(self.weights)):
-    #         # Accumulate gradients using the weights and the given gradient
-    #         propagated_gradient += conv3d(gradient[..., i, np.newaxis], self.weights[i][::-1, ::-1, ::-1, np.newaxis])
+    #         for c in range(gradients.shape[-1]):
+    #             kernel = np.flip(self.weights[i], axis=(0, 1, 2))
+    #             # Only multiply gradients and kernel along the channel dimension
+    #             propagated_gradients[..., :3] += conv3d(gradients[..., c], kernel[..., np.newaxis])
     #
     #     if self.prev_layer is not None:
-    #         self.prev_layer.backward(propagated_gradient)
+    #         self.prev_layer.backward(propagated_gradients)
 
-    def backward(self, gradient):
-        # Update gradients for each weight and propagate the gradient to the previous layer
-        for i in range(len(self.weights)):
-            self.gradients[i] += gradient * self.input_data
+    # def backward(self, gradients):
+    #     for i in range(len(self.weights)):
+    #         for c in range(gradients.shape[-1]):
+    #             num_channels = 3  # Assuming your input data has 3 channels (RGB)
+    #             weight_gradient = np.sum(gradients[..., c] * self.input_data[..., c % num_channels])
+    #             self.gradients[i] += weight_gradient
+    #
+    #     propagated_gradients = np.zeros_like(self.input_data)
+    #     for i in range(len(self.weights)):
+    #         for c in range(gradients.shape[-1]):
+    #             kernel = np.flip(self.weights[i], axis=(0, 1, 2))
+    #             # propagated_gradients += conv3d(gradients[..., c], kernel[..., np.newaxis])
+    #             propagated_gradients += conv3d(gradients[..., i, np.newaxis],
+    #                                           self.weights[i][::-1, ::-1, ::-1, np.newaxis])
+    #
+    #     if self.prev_layer is not None:
+    #         self.prev_layer.backward(propagated_gradients)
 
-        # Calculate the gradient to propagate to the previous layer
-        propagated_gradient = np.zeros_like(self.input_data)
+    def backward(self, gradients):
+        num_channels = gradients.shape[-1]  # Get the number of input channels
+        propagated_gradients = np.zeros_like(gradients)
+        learning_rate = 0.001
+        # for i in range(len(self.weights)):
+        #     for c in range(gradients.shape[-1]):
+        #         weight_gradient = np.sum(gradients[..., c] * gradients[..., c % num_channels])
+        #         gradients[i] += weight_gradient
+
         for i in range(len(self.weights)):
-            propagated_gradient += conv3d(gradient[..., i, np.newaxis], self.weights[i][::-1, ::-1, ::-1, np.newaxis])
+            for c in range(gradients.shape[-1]):
+                weight_gradient = np.sum(gradients[..., c] * gradients[..., c % num_channels])
+                self.weights[i] -= learning_rate * weight_gradient
+
+        for i in range(len(self.weights)):
+            for c in range(gradients.shape[-1]):
+                kernel = np.flip(self.weights[i], axis=(0, 1, 2))
+                conv_result = conv3d(gradients,
+                                     kernel)  # Perform convolution with individual channel of gradients
+                pad_depth = gradients.shape[0] - conv_result.shape[0]
+                pad_height = gradients.shape[1] - conv_result.shape[1]
+                pad_width = gradients.shape[2] - conv_result.shape[2]
+                padded_conv_result = np.pad(conv_result, ((0, pad_depth), (0, pad_height), (0, pad_width), (0, 0)),
+                                            mode='constant')
+                if c < 3:
+                    propagated_gradients[..., c] += padded_conv_result[..., c % num_channels]
 
         if self.prev_layer is not None:
-            self.prev_layer.backward(propagated_gradient)
+            self.prev_layer.backward(propagated_gradients)
 
     # Other methods like add_weight, forward, backward, etc.
 
@@ -281,107 +327,3 @@ def upscale(input_array, scale_factor):
 def dropout(x, rate):
     mask = np.random.binomial(1, rate, size=x.shape)
     return x * mask
-
-
-# def simple_unet_model(inputs , num_classes):
-#     # Build the model using the SimpleUNetLayer class
-#     # inputs = np.zeros((IMG_HEIGHT, IMG_WIDTH, IMG_DEPTH, IMG_CHANNELS))
-#     s = inputs
-#
-#     # Contraction path
-#     kernel_initializer = np.random.normal(loc=0.0, scale=np.sqrt(2.0), size=(3, 3, 3, 32)).astype(np.float32)
-#     kernel_initializer2 = np.ones((3, 3, 3, 16))
-#
-#     c1 = conv3d(s, kernel_initializer)
-#     c1 = relu(c1)
-#     c1 = dropout(c1, 0.1)
-#     c1 = conv3d(c1, kernel_initializer)
-#     c1 = relu(c1)
-#     p1 = max_pooling3d(c1, (2, 2, 2))
-#
-#     c2 = conv3d(p1, kernel_initializer)
-#     c2 = relu(c2)
-#     c2 = dropout(c2, 0.1)
-#     c2 = conv3d(c2, kernel_initializer)
-#     c2 = relu(c2)
-#     p2 = max_pooling3d(c2, (2, 2, 2))
-#
-#     c3 = conv3d(p2, kernel_initializer)
-#     c3 = relu(c3)
-#     c3 = dropout(c3, 0.2)
-#     c3 = conv3d(c3, kernel_initializer)
-#     c3 = relu(c3)
-#     p3 = max_pooling3d(c3, (2, 2, 2))
-#
-#     c4 = conv3d(p3, kernel_initializer)
-#     c4 = relu(c4)
-#     c4 = dropout(c4, 0.2)
-#     c4 = conv3d(c4, kernel_initializer)
-#     c4 = relu(c4)
-#     p4 = max_pooling3d(c4, (2, 2, 2))
-#
-#     c5 = conv3d(p4, kernel_initializer)
-#     c5 = relu(c5)
-#     c5 = dropout(c5, 0.3)  # Lowered dropout rate
-#
-#     # Expansive path
-#
-#     target_shape_u6 = (c4.shape[0], c4.shape[1], c4.shape[2])
-#     u6 = upsample_with_padding(c5, kernel_initializer, target_shape_u6, strides=(2, 2, 2))
-#     # Add padding to match the dimensions of c4
-#     pad_depth = c4.shape[0] - u6.shape[0]
-#     pad_height = c4.shape[1] - u6.shape[1]
-#     pad_width = c4.shape[2] - u6.shape[2]
-#     u6 = np.pad(u6, ((0, pad_depth), (0, pad_height), (0, pad_width), (0, 0)), mode='constant')
-#     c6 = conv3d_transpose(u6, kernel_initializer)
-#     c6 = relu(c6)
-#     c6 = dropout(c6, 0.2)
-#     c6 = conv3d_transpose(c6, kernel_initializer)
-#     c6 = relu(c6)
-#
-#     target_shape_u7 = (c3.shape[0], c3.shape[1], c3.shape[2])
-#     u7 = upsample_with_padding(c6, kernel_initializer, target_shape_u7, strides=(2, 2, 2))
-#     # Add padding to match the dimensions of c3
-#     pad_depth = c3.shape[0] - u7.shape[0]
-#     pad_height = c3.shape[1] - u7.shape[1]
-#     pad_width = c3.shape[2] - u7.shape[2]
-#     u7 = np.pad(u7, ((0, pad_depth), (0, pad_height), (0, pad_width), (0, 0)), mode='constant')
-#     c7 = conv3d_transpose(u7, kernel_initializer)
-#     c7 = relu(c7)
-#     c7 = dropout(c7, 0.2)
-#     c7 = conv3d_transpose(c7, kernel_initializer)
-#     c7 = relu(c7)
-#
-#     target_shape_u8 = (c2.shape[0], c2.shape[1], c2.shape[2])
-#     u8 = upsample_with_padding(c7, kernel_initializer, target_shape_u8, strides=(2, 2, 2))
-#     # Add padding to match the dimensions of c2
-#     pad_depth = c2.shape[0] - u8.shape[0]
-#     pad_height = c2.shape[1] - u8.shape[1]
-#     pad_width = c2.shape[2] - u8.shape[2]
-#     u8 = np.pad(u8, ((0, pad_depth), (0, pad_height), (0, pad_width), (0, 0)), mode='constant')
-#     u8 = concatenate([u8, c2], axis=-1)
-#     c8 = conv3d_transpose(u8, kernel_initializer)
-#     c8 = relu(c8)
-#     c8 = dropout(c8, 0.1)
-#     c8 = conv3d_transpose(c8, kernel_initializer)
-#     c8 = relu(c8)
-#
-#     target_shape_u9 = (c1.shape[0], c1.shape[1], c1.shape[2])
-#     # u9 = upsample_with_padding(c8, kernel_initializer, target_shape_u9, strides=(2, 2, 2))
-#     u9 = upsample_with_padding(c8, kernel_initializer, target_shape_u9, strides=(2, 2, 2))
-#     # Add padding to match the dimensions of c1
-#     pad_depth = c1.shape[0] - u9.shape[0]
-#     pad_height = c1.shape[1] - u9.shape[1]
-#     pad_width = c1.shape[2] - u9.shape[2]
-#     u9 = np.pad(u9, ((0, pad_depth), (0, pad_height), (0, pad_width), (0, 0)), mode='constant')
-#     c9 = conv3d_transpose(u9, kernel_initializer)
-#     c9 = relu(c9)
-#     c9 = dropout(c9, 0.1)
-#     c9 = conv3d_transpose(c9, kernel_initializer)
-#     c9 = relu(c9)
-#
-#     outputs = conv3d(c9, np.ones((1, 1, 1, num_classes)))
-#
-#     return outputs
-
-    # return model

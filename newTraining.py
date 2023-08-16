@@ -1,11 +1,9 @@
 import os
 import numpy as np
-# from convolutionLayer2 import simple_unet_model
 from unetClass import SimpleUNetLayer
 from customDataGenerator import imageLoader
 import json
 import h5py
-
 
 # Assuming you've already defined the model, loss function, and other components as shown earlier
 # Define the number of classes and other parameters
@@ -18,28 +16,31 @@ BATCH_SIZE = 16
 EPOCHS = 10
 LEARNING_RATE = 0.001
 
-
 train_img_dir = "BraTS2020_TrainingData/input_data_128/train/images/"
 train_mask_dir = "BraTS2020_TrainingData/input_data_128/train/masks/"
 train_img_list = os.listdir(train_img_dir)
 train_mask_list = os.listdir(train_mask_dir)
+train_img_list = sorted(train_img_list)
+train_mask_list = sorted(train_mask_list)
 
-# Initialize the model
-# model = simple_unet_model(IMG_HEIGHT, IMG_WIDTH, IMG_DEPTH, IMG_CHANNELS, NUM_CLASSES)
+# Create instances of SimpleUNetLayer for each layer
+layer1 = SimpleUNetLayer()
+layer2 = SimpleUNetLayer()
+layer3 = SimpleUNetLayer()
 
-# model = simple_unet_model(IMG_HEIGHT, IMG_WIDTH, IMG_DEPTH, IMG_CHANNELS, NUM_CLASSES)
-
-model = SimpleUNetLayer()
+# Set previous layer connections
+layer1.set_prev_layer(None)  # The first layer has no previous layer
+layer2.set_prev_layer(layer1)
+layer3.set_prev_layer(layer2)
 
 # Define the number of training samples and batch size
 num_train_samples = len(train_img_list)
-batch_size = 16  # Adjust this according to your needs
+batch_size = 1  # Adjust this according to your needs
 
 train_data_generator = imageLoader(train_img_dir, train_img_list, train_mask_dir, train_mask_list, batch_size)
-kernel_initializer = np.random.normal(loc=0.0, scale=np.sqrt(2.0), size=(3, 3, 3, 32)).astype(np.float32)
 
 # Training loop
-epochs = 10
+epochs = 1
 learning_rate = 0.001
 
 def categorical_crossentropy(y_true, y_pred):
@@ -47,88 +48,43 @@ def categorical_crossentropy(y_true, y_pred):
     y_pred = np.clip(y_pred, epsilon, 1 - epsilon)  # Clip predictions to prevent log(0)
     return -np.sum(y_true * np.log(y_pred))
 
-learning_rate = 0.001
-
 for epoch in range(epochs):
     total_loss = 0
-    batches_per_epoch = num_train_samples // batch_size
+    batches_per_epoch = 1 # num_train_samples // batch_size
 
     for _ in range(batches_per_epoch):
-        # Get a batch of data from the generator
         batch_images, batch_masks = next(train_data_generator)
 
-        batch_loss = 0
-
         for i in range(batch_size):
-            # Forward pass
             input_data = batch_images[i]
             target_output = batch_masks[i]
 
-            # Forward pass through the model
-            output = model.forward(input_data)
+            # Execute the forward pass through the layers
+            output = layer3.forward(input_data)
 
             # Compute loss for the current sample
             loss = categorical_crossentropy(target_output, output)
-            batch_loss += loss
 
             # Backpropagation
             gradient = output - target_output
 
             # Backpropagate through the model layers
-            model.backward(gradient)
+            layer3.backward(gradient)
 
-            # Update weights using gradients and learning rate
-            model.update_weights(learning_rate)
+            # Accumulate gradients
 
-        avg_batch_loss = batch_loss / batch_size
+        # Update weights using accumulated gradients and learning rate
+        layer3.update_weights(learning_rate)
+
+        # Reset gradients for the next batch
+        layer1.reset_gradients()
+        layer2.reset_gradients()
+        layer3.reset_gradients()
+
+        avg_batch_loss = loss / batch_size
         total_loss += avg_batch_loss
 
     avg_epoch_loss = total_loss / batches_per_epoch
     print(f"Epoch {epoch + 1}/{epochs}, Loss: {avg_epoch_loss}")
 
 print("Training completed.")
-
-# Get model information
-model_info = model.get_model_info()
-
-# Save model information to a JSON file
-with open("model_info.json", "w") as json_file:
-    json.dump(model_info, json_file)
-
-# for epoch in range(epochs):
-#     total_loss = 0
-#     batches_per_epoch = num_train_samples // batch_size
-#
-#     for _ in range(batches_per_epoch):
-#         # Get a batch of data from the generator
-#         batch_images, batch_masks = next(train_data_generator)
-#
-#         batch_loss = 0
-#
-#         for i in range(batch_size):
-#             # Forward pass
-#             input_data = batch_images[i]
-#             target_output = batch_masks[i]
-#             output = simple_unet_model(input_data, NUM_CLASSES)
-#
-#             # Compute loss for the current sample
-#             loss = categorical_crossentropy(target_output, output)
-#             batch_loss += loss
-#
-#             # Backpropagation
-#             gradient = output - target_output
-#
-#             # Update weights using gradients
-#             for layer in model.layers:
-#                 for j in range(len(layer.weights)):
-#                     weight_gradient = np.dot(layer.input.T, gradient)
-#                     layer.weights[j] -= learning_rate * weight_gradient
-#                     gradient = np.dot(gradient, layer.weights[j].T)
-#
-#         avg_batch_loss = batch_loss / batch_size
-#         total_loss += avg_batch_loss
-#
-#     avg_epoch_loss = total_loss / batches_per_epoch
-#     print(f"Epoch {epoch + 1}/{epochs}, Loss: {avg_epoch_loss}")
-#
-# print("Training completed.")
