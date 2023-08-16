@@ -87,4 +87,14 @@ for epoch in range(epochs):
     avg_epoch_loss = total_loss / batches_per_epoch
     print(f"Epoch {epoch + 1}/{epochs}, Loss: {avg_epoch_loss}")
 
+    # After training loop
+    trained_weights = {
+        "layer1_weights": layer1.weights,
+        "layer2_weights": layer2.weights,
+        "layer3_weights": layer3.weights
+    }
+
+    # Save the trained weights to a numpy array file
+    np.savez("trained_weights.npz", **trained_weights)
+
 print("Training completed.")
